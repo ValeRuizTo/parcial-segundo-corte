@@ -28,9 +28,9 @@ router.get("/:coinName", async (req, res) => {
   const price = await fetchCoinPrice(coinName);
 
   if (price !== null) {
-    res.send(`El precio en USD de ${coinName} para el día de hoy es ${price}`);
+    res.send(`El precio en dólares de ${coinName} para el día de hoy es ${price}`);
   } else {
-    res.status(400).send("Error de entrada: Nombre de la moneda no se encuentra o es incorrecto");
+    res.status(400).send("Error de entrada: Nombre de la moneda no se encuentra en la base de datos o es incorrecto");
   }
 });
 
