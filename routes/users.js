@@ -2,9 +2,13 @@ const express = require("express");
 const router = express.Router();
 const nombres = require('./nombres');
 
-
 router.post("/", (req, res) => {
-  const { nombre, apellido, correo, ciudad, pais } = req.body;
+  const lowercaseBody = {};
+  for (let key in req.body) {
+    lowercaseBody[key.toLowerCase()] = req.body[key];
+  }
+
+  const { nombre, apellido, correo, ciudad, pais } = lowercaseBody;
 
   if (!nombre || !apellido || !correo) {
     return res.status(400).json({ error: 'Los parámetros nombre, apellido y correo electrónico son obligatorios.' });
@@ -23,6 +27,7 @@ router.post("/", (req, res) => {
 
   res.status(201).json(usuario);
 });
+
 
 
 router.get("/:count", (req, res) => {
