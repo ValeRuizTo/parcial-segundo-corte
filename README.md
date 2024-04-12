@@ -2,7 +2,16 @@
 ## Examen de Desarrollo Backend con Express
 
 ### API
+
 https://segundo-parcial-ochre.vercel.app/
+
+
+### Parcial Valentina Ruiz
+
+
+
+
+
 
 ### Instrucciones Generales
 - El examen consta de tres partes, cada una correspondiente a una ruta de una API REST desarrollada con Express, todas deben desarrollarse dentro de la misma aplicación.
