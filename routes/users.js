@@ -2,23 +2,16 @@ const express = require("express");
 const router = express.Router();
 const nombres = require('./nombres');
 
-function convertToLowercase(req, res, next) {
-  for (let key in req.body) {
-    if (typeof req.body[key] === 'string') {
-      req.body[key] = req.body[key].toLowerCase();
-    }
-  }
-}
 
-router.post("/", convertToLowercase, (req, res) => {
+router.post("/", (req, res) => {
   const { nombre, apellido, correo, ciudad, pais } = req.body;
 
   if (!nombre || !apellido || !correo) {
     return res.status(400).json({ error: 'Los parámetros nombre, apellido y correo electrónico son obligatorios.' });
   }
 
-  const ciudadFinal = ciudad || "Bogotá"; 
-  const paisFinal = pais || "Colombia"; 
+  const ciudadFinal = ciudad || "Bogotá";
+  const paisFinal = pais || "Colombia";
 
   const usuario = {
     nombre,
